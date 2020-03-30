@@ -44,7 +44,7 @@ window.addEventListener('storage', function(e){
  
 const now = moment()
 now.locale('fa')
-console.log(now.format('MMMM Do YYYY, h:mm:ss a'))
+console.log(now.format('MMM Do YY'))
 
 
 
