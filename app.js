@@ -46,5 +46,6 @@ const now = moment()
 now.locale('fa')
 console.log(now.format('MMM Do YY'))
 
+console.log(now.format('MMMM Do YYYY, h:mm:ss a'))
 
 
