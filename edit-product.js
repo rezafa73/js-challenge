@@ -1,6 +1,7 @@
 const titleElement = document.querySelector('#product-title')
 const priceElement = document.querySelector('#product-price')
 const removeButton = document.querySelector('#remove-button')
+const dateElemnt = document.querySelector('#last-edit')
 
 const productId = location.hash.substring(1)
 let products = getSaveProduct()
@@ -14,14 +15,19 @@ if(product == undefined){
 
 titleElement.value = product.title
 priceElement.value = product.price
+dateElemnt.textContent = lastEditMessage(product.updated)
 
 titleElement.addEventListener('input', function(e){
     product.title = e.target.value
+    product.updated = moment().valueOf()
+    dateElemnt.textContent = lastEditMessage(product.updated)
     saveProducts(products)
 })
 
 priceElement.addEventListener('input', function(e){
     product.price = e.target.value
+    product.updated = moment().valueOf()
+    dateElemnt.textContent = lastEditMessage(product.updated)
     saveProducts(products)
 })
 
@@ -43,5 +49,6 @@ window.addEventListener('storage', function(e){
         
         titleElement.value = product.title
         priceElement.value = product.price
+        dateElemnt.textContent = lastEditMessage(product.updated)
     }
 })

@@ -76,3 +76,7 @@ const renderProducts= function(products, filters){
    return productEl
 
  }
+
+ const lastEditMessage = function(timestamp){
+    return `Last Edit: ${moment(timestamp).locale('fa').fromNow()}`
+ }

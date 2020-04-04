@@ -23,11 +23,14 @@ document.querySelector('#search').addEventListener('input',function(e){
 document.querySelector('#form-data').addEventListener('submit', function(e){
     e.preventDefault()
     const id = uuidv4()
+    const timestamp = moment().valueOf()
         products.push ({
              id: id,
              title: e.target.elements.productTitle.value,
              price:'',
-             exist: true
+             exist: true,
+             created : timestamp,
+             updated : timestamp
         })
    saveProducts(products)
       
@@ -42,10 +45,5 @@ window.addEventListener('storage', function(e){
     }
 })
  
-const now = moment()
-now.locale('fa')
-console.log(now.format('MMM Do YY'))
-
-console.log(now.format('MMMM Do YYYY, h:mm:ss a'))
 
 
